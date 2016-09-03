@@ -2,7 +2,7 @@ package br.com.fiap.bean;
 
 import java.util.List;
 
-import javax.ejb.Local;
+import javax.ejb.Remote;
 import javax.ejb.Schedule;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -13,7 +13,7 @@ import br.com.fiap.AtivEComBeanRemote;
 import br.com.fiap.entity.ComentarioProduto;
 
 
-@Local(value=AtivEComBeanRemote.class)
+
 @Stateless
 public class AtivEComBean implements AtivEComBeanRemote {
 
