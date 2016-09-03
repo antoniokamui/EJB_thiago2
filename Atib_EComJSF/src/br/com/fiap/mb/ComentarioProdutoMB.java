@@ -23,26 +23,26 @@ public class ComentarioProdutoMB {
 	
 	public ComentarioProdutoMB() {
 		setComentarioProduto(new ComentarioProduto());
-		listaComentariosProduto = new ArrayList<ComentarioProduto>();
+		setListaComentariosProduto(new ArrayList<ComentarioProduto>());
 		
 	}
 	
 	@PostConstruct
 	public void listar(){
-		listaComentariosProduto = endpoint.listarComentariosProduto();
+		setListaComentariosProduto(endpoint.listarComentariosProduto());
 	}
 	
 	public void inserir(){
-		endpoint.inserirComentarioProduto(comentarioProduto);
+		endpoint.inserirComentarioProduto(getComentarioProduto());
 		listar();
 	}
 
-	public ComentarioProduto getComentario() {
-		return getComentarioProduto();
+	public List<ComentarioProduto> getListaComentariosProduto() {
+		return listaComentariosProduto;
 	}
 
-	public void setComentario(ComentarioProduto comentarioProduto) {
-		this.setComentarioProduto(comentarioProduto);
+	public void setListaComentariosProduto(List<ComentarioProduto> listaComentariosProduto) {
+		this.listaComentariosProduto = listaComentariosProduto;
 	}
 
 	public ComentarioProduto getComentarioProduto() {
@@ -52,6 +52,8 @@ public class ComentarioProdutoMB {
 	public void setComentarioProduto(ComentarioProduto comentarioProduto) {
 		this.comentarioProduto = comentarioProduto;
 	}
+
+
 
 
 }

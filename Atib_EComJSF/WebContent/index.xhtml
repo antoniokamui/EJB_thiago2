@@ -15,58 +15,58 @@
 <body>
 	<h:form>
 		<label>Data</label>
-		<h:inputText value="#{comentarioMB.comentario.data}">
+		<h:inputText value="#{comentarioProdutoMB.comentarioProduto.data}">
 			<f:convertDateTime pattern="dd/MM/yyyy" />
 		</h:inputText>
 		<br /><br />
 		<label>Título</label>
-		<h:inputText  value="#{comentarioMB.comentario.titulo}"></h:inputText>
+		<h:inputText  value="#{comentarioProdutoMB.comentarioProduto.titulo}"></h:inputText>
 		<br /><br />
 		<label>Assunto</label>
-		<h:inputText  value="#{comentarioMB.comentario.assunto}"></h:inputText>
+		<h:inputText  value="#{comentarioProdutoMB.comentarioProduto.assunto}"></h:inputText>
 		<br /><br />
 		<label>Comentário</label>
-		<h:inputText  value="#{comentarioMB.comentario.comentario}"></h:inputText>
+		<h:inputText  value="#{comentarioProdutoMB.comentarioProduto.comentario}"></h:inputText>
 		<br /><br />
 		<label>Avaliação</label>
-		<h:inputText  value="#{comentarioMB.comentario.avaliacao}">
+		<h:inputText  value="#{comentarioProdutoMB.comentarioProduto.avaliacao}">
 			<f:convertNumber integerOnly="true"></f:convertNumber>
 		</h:inputText>
 		<br /><br />
-		<h:commandButton action="#{comentarioMB.inserir}" value="Enviar"></h:commandButton>
+		<h:commandButton action="#{comentarioProdutoMB.inserir}" value="Enviar"></h:commandButton>
 		<br /><br />
 		<input type="reset" value="Limpar"></input>
 	</h:form>
-	<h:dataTable value="#{comentarioMB.comentarios}" var="comentario" border="1" style="text-align:center" rendered="#{not empty comentarioMB.comentarios}">
+	<h:dataTable value="#{comentarioProdutoMB.listaComentariosProduto}" var="lista" border="1" style="text-align:center" rendered="#{not empty comentarioProdutoMB.listaComentariosProduto}">
 		<h:column>
 		 	<f:facet name="header">
             	<h:outputText value="Data"/>
         	</f:facet>
-			#{comentario.data}
+			#{lista.data}
 		</h:column>
 		<h:column>
 			<f:facet name="header">
             	<h:outputText value="Titulo"/>
         	</f:facet>
-			#{comentario.titulo}
+			#{lista.titulo}
 		</h:column>
 		<h:column>
 			<f:facet name="header">
             	<h:outputText value="Assunto"/>
         	</f:facet>
-			#{comentario.assunto}
+			#{lista.assunto}
 		</h:column>
 		<h:column>
 			<f:facet name="header">
-            	<h:outputText value="Comentario"/>
+            	<h:outputText value="Comentário"/>
         	</f:facet>
-			#{comentario.comentario}
+			#{lista.comentario}
 		</h:column>
 		<h:column>
 			<f:facet name="header">
-            	<h:outputText value="Avaliacao"/>
+            	<h:outputText value="Avaliação"/>
         	</f:facet>
-			#{comentario.avaliacao}
+			#{lista.avaliacao}
 		</h:column>
 	</h:dataTable>
 </body>
