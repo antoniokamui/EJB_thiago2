@@ -4,19 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
-import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
 import br.com.fiap.entity.ComentarioProduto;
+import br.com.fiap.webservice.AtivComentarioProdutoEndpoint;
 import br.com.fiap.webservice.IAtivComentarioProdutoEndpoint;
 
 @ManagedBean
 @RequestScoped
 public class ComentarioProdutoMB {
 	
-	@EJB
-	IAtivComentarioProdutoEndpoint endpoint;
 
 	private ComentarioProduto comentarioProduto;
 	private List<ComentarioProduto> listaComentariosProduto = new ArrayList<ComentarioProduto>();
@@ -29,11 +27,11 @@ public class ComentarioProdutoMB {
 	
 	@PostConstruct
 	public void listar(){
-		setListaComentariosProduto(endpoint.listarComentariosProduto());
+		listaComentariosProduto = new AtivComentarioProdutoEndpoint().listarComentariosProduto();
 	}
 	
 	public void inserir(){
-		endpoint.inserirComentarioProduto(getComentarioProduto());
+		new AtivComentarioProdutoEndpoint().inserirComentarioProduto(comentarioProduto);
 		listar();
 	}
 
