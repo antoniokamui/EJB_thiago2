@@ -7,37 +7,55 @@ import javax.ejb.EJB;
 import javax.ejb.Local;
 import javax.ejb.Stateless;
 import javax.jws.WebService;
+import javax.naming.InitialContext;
 
 import br.com.fiap.AtivEComBeanRemote;
 import br.com.fiap.entity.ComentarioProduto;
 
 @WebService(serviceName="AtivComentarioProdutoEndpoint")
-@Stateless
-@Local(value=IAtivComentarioProdutoEndpoint.class)
 public class AtivComentarioProdutoEndpoint implements IAtivComentarioProdutoEndpoint{
 
-	@EJB
-	AtivEComBeanRemote remote;
+	
+	 
 	
 	@Override
 	public List<ComentarioProduto> listarComentariosProduto() {
-		List<ComentarioProduto> comentarios = new ArrayList<ComentarioProduto>();
+		List<ComentarioProduto> lista = new ArrayList<ComentarioProduto>();
 		try{
-			comentarios = remote.listarComentariosProduto();
-		}catch(Exception e){
-			e.printStackTrace();
-		}
+			
+				InitialContext ctx = new InitialContext();
+				AtivEComBeanRemote remote = (AtivEComBeanRemote) ctx
+				.lookup("ejb:/Ativ_EComJSF/AtivEComBean!br.com.fiap.AtivEComBeanRemote");
+
+				lista  = remote.listarComentariosProduto();
+
+				}catch(Exception e){
+
+				e.printStackTrace();
+
+				}
 		
-		return comentarios;
+		
+		return lista;
 	}
 
 	@Override
 	public void inserirComentarioProduto(ComentarioProduto comentarioPrd) {
+		
 		try{
+
+			InitialContext ctx = new InitialContext();
+			AtivEComBeanRemote remote = (AtivEComBeanRemote) ctx
+			.lookup("ejb:/Ativ_EComJSF/AtivEComBean!br.com.fiap.AtivEComBeanRemote");
+			
 			remote.inserirComentarioProduto(comentarioPrd);
 		}catch(Exception e){
 			e.printStackTrace();
 		}
 	}
 
+	
+
+	
+	
 }

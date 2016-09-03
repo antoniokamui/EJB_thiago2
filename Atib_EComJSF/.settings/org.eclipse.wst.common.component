@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="Atib_EComJSF">
+    <wb-module deploy-name="Ativ_EComJSF">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="context-root" value="Atib_EComJSF"/>
-        <property name="java-output-path" value="/Atib_EComJSF/build/classes"/>
+        <property name="java-output-path" value="/Ativ_EComJSF/build/classes"/>
+        <property name="context-root" value="Ativ_EComJSF"/>
     </wb-module>
 </project-modules>
