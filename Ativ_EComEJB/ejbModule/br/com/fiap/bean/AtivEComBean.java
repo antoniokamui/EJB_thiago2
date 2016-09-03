@@ -26,7 +26,7 @@ public class AtivEComBean implements AtivEComBeanRemote {
 
 	@Override
 	public List<ComentarioProduto> listarComentariosProduto() {
-		TypedQuery<ComentarioProduto> query = em.createQuery("From Comentario_produto",ComentarioProduto.class);
+		TypedQuery<ComentarioProduto> query = em.createQuery("From ComentarioProduto",ComentarioProduto.class);
 		List<ComentarioProduto> resultList = query.getResultList();
 		return resultList;
 	}
